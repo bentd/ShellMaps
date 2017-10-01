@@ -1,7 +1,19 @@
-runtime: python27
-api_version: 1
-threadsafe: true
+runtime: python
+env: flex
+entrypoint: gunicorn -b :$PORT server:app
 
-handlers:
-- url: /.*
-  script: main.app
+runtime_config:
+  python_version: 2
+
+env_variables:
+    SQLALCHEMY_DATABASE_URI: mysql+pymysql://root:password@/database?unix_socket=/cloudsql/shellhacks-shellmaps:us-central1:database
+    APP_SETTINGS: server.config.ProductionConfig
+
+beta_settings:
+    cloud_sql_instances: shellhacks-shellmaps:us-central1:database
+
+automatic_scaling:
+  min_num_instances: 1
+  max_num_instances: 2
+  cpu_utilization:
+    target_utilization: 0.5

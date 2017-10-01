@@ -10,7 +10,7 @@
     <br>
 
     <form action="/map" method="post">
-        <select>
+        <select name="category">
             <option value="food">Food</option>
             <option value="legal">Legal</option>
             <option value="cleaning services">Cleaning Services</option>
@@ -21,10 +21,20 @@
             <option value="retail">Retail</option>
             <option value="beautician">Beautician</option>
         </select>
-            <input type="checkbox" name="minority" value="1">Minority</input>
-            <input type="checkbox" name="woman" value="1">Woman</input>
+        <input type="checkbox" name="minority" value="1">Minority</input>
+        <input type="checkbox" name="woman" value="1">Woman</input>
         <button>Submit</button>
     </form>
+
+    <br>
+    <br>
+
+    {% for business in filteredBusiness %}
+
+        <h5>{{ business.name }}</h5>
+        <p>{{ business.address }}<p>
+
+    {% endfor %}
 
 
         <script>

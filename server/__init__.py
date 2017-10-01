@@ -6,19 +6,19 @@ from flask import Flask
 from flask import g
 from flask import Response
 from flask import request
-from flask_bcrypt import Bcrypt
-from flask_cors import CORS
-from flask_httpauth import HTTPBasicAuth
+# from flask_bcrypt import Bcrypt
+#from flask_cors import CORS
+#from flask_httpauth import HTTPBasicAuth
 from flask_mail import Mail
 from flask_sqlalchemy import SQLAlchemy
 
 
 app = Flask(__name__)
-app.config.from_object(os.environ.get("APP_SETTINGS"))
-CORS(app)
+app.config.from_object(os.environ.get("APP_SETTINGS", "server.config.TestingConfig"))
+#CORS(app)
 
 
-bcrypt = Bcrypt(app)
+#bcrypt = Bcrypt(app)
 db = SQLAlchemy(app)
 mail = Mail(app)
 

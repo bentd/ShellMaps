@@ -31,19 +31,6 @@ class BaseConfig(object):
     #database
     SQLALCHEMY_TRACK_MODIFICATIONS = False
 
-
-class DevelopmentConfig(BaseConfig):
-    """Development configuration."""
-
-    # main config
-    DEBUG = True
-    DEBUG_TB_ENABLED = True
-    WTF_CSRF_ENABLED = False
-
-    # database URI
-    SQLALCHEMY_DATABASE_URI = 'sqlite:///' + os.path.join(databasedir, "dev.sqlite")
-
-
 class TestingConfig(BaseConfig):
     """Testing configuration."""
 
