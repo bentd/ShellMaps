@@ -32,7 +32,7 @@ main #background
     background: url(../img/chicago.jpg) no-repeat;
     background-size: cover;
     filter: brightness(75%);
-    height: 60vh;
+    height: 20vh !important;
 }
 
 

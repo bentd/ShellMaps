@@ -20,6 +20,14 @@ main #background
     height: 100vh;
 }
 
+main #background-register
+{
+    background: url(../img/chicago.jpg) no-repeat;
+    background-size: cover;
+    filter: brightness(75%);
+    height: 60vh;
+}
+
 main h1.header
 {
     font-size: 7vw;
@@ -35,12 +43,15 @@ main h1.header
 
 main a
 {
-    display: block;
+    color: white;
     font-size: 2em;
     left: 50%;
     position: absolute;
-    top: 20%;
-    transform: translateX(-50%;);
+    top: 40%;
+    text-align: center;
+    margin: auto;
+    transform: translateX(-50%);
+    text-shadow: 2px 2px 1px fuchsia;
 }
 
 @keyframes enlarge

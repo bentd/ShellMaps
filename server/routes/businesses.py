@@ -16,4 +16,4 @@ businesses = Blueprint("businesses", __name__)
 def createBusiness():
 
 
-    return redirect("/contact")
+    return redirect("/register")

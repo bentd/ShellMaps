@@ -36,10 +36,10 @@ def download():
 
     return render_template("download.html")
 
-@primary.route("/contact", methods=["GET"])
-def contact():
+@primary.route("/register", methods=["GET"])
+def register():
 
-    return render_template("contact.html")
+    return render_template("register.html")
 
 @primary.route("/map", methods=["GET"])
 def map():
