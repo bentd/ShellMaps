@@ -15,7 +15,7 @@ class Business(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(64), nullable=False)
     owner = db.Column(db.String(128), nullable=False)
-    type = db.Column(db.String(16), nullable=False)
+    type = db.Column(db.String(32), nullable=False)
     address = db.Column(db.String(128), unique=True, nullable=False)
     minority = db.Column(db.Boolean, nullable=False)
     women = db.Column(db.Boolean, nullable=False)
@@ -37,7 +37,6 @@ class Business(db.Model):
         url = "https://maps.googleapis.com/maps/api/geocode/json?address={}&key=AIzaSyCo6s7TH2WBBQWgllw3kXlYxoM1zi7cCww".format(address)
         data = urlopen(url).read()
         coord = json.loads(data)["results"][0]["geometry"]["location"]
-        coord = {"lat": coord["lat"], "lng": coord["lng"]}
         return coord
 
     @classmethod
@@ -49,6 +48,8 @@ class Business(db.Model):
         minority = form.minority.data
         women = form.women.data
         verified = form.verified.data
+
+
 
 if __name__ == "__main__":
 

@@ -6,30 +6,39 @@
     <main>
         <div id="background"></div>
         <h1 class="header">A directory for minority-owned businesses.</h1>
-        <button class="scroll-down"><i class="fa fa-angle-double-down" aria-hidden="true"></i></button>
+        <a href="/map">Try It Out!</a>
     </main>
 
-    <!-- Google Maps -->
-    <div id="googleMap" style="width:100%;height:600px;">
+    <section id="about">
+        <p>ShellMaps is a directory for minority-owned businesses.</p>
+    </section>
+
+    <footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <p class="fh5co-left"><small>&copy; 2016 <a href="">ShellMaps Team</a> for Shellhacks FIU 2017</small></p>
+
+            </div>
+        </div>
+    </footer>
 
         <script>
-          function initMap() {
-            var center = {lat: -25.363, lng: 131.044};
-            var map = new google.maps.Map(document.getElementById('map'), {
-              zoom: 11,
-              center: center
+
+        // Scroll Next
+        var ScrollNext = function() {
+            $('body').on('click', '.scroll-btn', function(e){
+                e.preventDefault();
+
+                $('html, body').animate({
+                    scrollTop: $( $(this).closest('[data-next="yes"]').next()).offset().top
+                }, 1000, 'easeInOutExpo');
+                return false;
             });
-            {% for business in verifiedBusinesses %}
-            var marker = new google.maps.Marker({
-              position: {{ business.coordinates() }},
-              map: map
-            });
-            {% endfor %}
-          }
+        };
+
         </script>
 
-        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCo6s7TH2WBBQWgllw3kXlYxoM1zi7cCww&callback=myMap"></script>
 
-    </div>
 
 {% endblock %}

@@ -22,7 +22,7 @@ def main():
     #db.session.add(business)
     #db.session.commit()
 
-    businesses = db.session.query(Business).filter_by(verified=1).all()
+    businesses = db.session.query(Business).filter_by(verified=True).all()
 
     return render_template("index.html", verifiedBusinesses=businesses)
 
@@ -40,3 +40,23 @@ def download():
 def contact():
 
     return render_template("contact.html")
+
+@primary.route("/map", methods=["GET"])
+def map():
+
+    businesses = db.session.query(Business).filter_by(verified=True).all()
+    return render_template("map.html", verifiedBusinesses=businesses, zip=zip, range=range, len=len)
+
+@primary.route("/map", methods=["POST"])
+def filter():
+
+    category = request.form.get("category")
+    minority = request.form.get("minority")
+    woman = request.form.get("woman")
+    if minority and not woman:
+        businesses = db.session.query(Business).filter_by(type=category, minority=minority).all()
+    elif woman and not minority:
+        businesses = db.session.query(Business).filter_by(type=category, women=woman).all()
+    else:
+        businesses = db.session.query(Business).filter_by(type=category, women=woman, minority=minority).all()
+    return render_template("map.html", verifiedBusinesses=businesses)

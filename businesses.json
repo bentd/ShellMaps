@@ -1,0 +1,86 @@
+{
+    "businesses":
+    [
+    	{
+    	    "name": "Garcia Paez, PA",
+    	    "owner": "Garcia Paez",
+    	    "type": "Legal",
+    	    "address": "7850 NW 146 St Miami, FL 33016",
+    	    "minority": 1,
+    	    "women": 0,
+    	    "verified": 1
+    	},
+    	{
+    	    "name": "Felix Seafood Corp",
+    	    "owner": "Felix Martinez",
+    	    "type": "Food",
+    	    "address": "1375 NW 89th CT Miami, FL 33172",
+    	    "minority": 1,
+    	    "women": 0,
+    	    "verified": 1
+    	},
+    	{
+    	    "name": "Ricky Bakery",
+    	    "owner": "Richard Álvarez Guerra",
+    	    "type": "Food",
+    	    "address": "12759 SW 42nd St. Miami FL 33175",
+    	    "minority": 1,
+    	    "women": 0,
+    	    "verified": 1
+    	},
+    	{
+    	    "name": "M&M Cleaning Services",
+    	    "owner": "Mark Mills",
+    	    "type": "Cleaning Services",
+    	    "address": "817 Turner Circle Homestead, FL 33030",
+    	    "minority": 1,
+    	    "women": 0,
+    	    "verified": 1
+    	},
+    	{
+    	    "name": "Biometrics Medical Testing LLC",
+    	    "owner": "Sherice Malagon-King",
+    	    "type": "Medical",
+    	    "address": "13727 SW 152 ST #647 Miami, FL 33177",
+    	    "minority": 0,
+    	    "women": 1,
+    	    "verified": 1
+    	},
+    	{
+    	    "name": "Carty Architecture, LLC",
+    	    "owner": "Judy Carty",
+    	    "type": "Architecture",
+    	    "address": "2655 S Le Jeune Rd., 607 Coral Gables, FL 33134",
+    	    "minority": 0,
+    	    "women": 1,
+    	    "verified": 1
+    	},
+    	{
+    	    "name": "Real Estate",
+    	    "owner": "Sylvia Romagosa",
+    	    "type": "Real Estate",
+    	    "address": "12910 SW 117th St Miami, FL 33186",
+    	    "minority": 0,
+    	    "women": 1,
+    	    "verified": 1
+    	},
+    	{
+    	    "name": "A Wright Approach",
+    	    "owner": "Lawanza Wright",
+    	    "type": "Lawn Maintenance",
+    	    "address": "21780 sw 111th ave cutler bay, FL 33170",
+    	    "minority": 0,
+    	    "women": 1,
+    	    "verified": 1
+    	},
+    	{
+    	    "name": "Give Good Works",
+    	    "owner": "Heather Klinker",
+    	    "type": "Retail",
+    	    "address": "2401 N. Miami Ave Miami, FL 33127",
+    	    "minority": 0,
+    	    "women": 1,
+    	    "verified": 1
+    	}
+    ]
+}

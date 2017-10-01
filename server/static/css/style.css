@@ -33,15 +33,14 @@ main h1.header
     color: white;
 }
 
-main button.scroll-down
+main a
 {
-    animation: enlarge infinite;
-    bottom: 20px;
+    display: block;
     font-size: 2em;
     left: 50%;
     position: absolute;
-    transform: translateX(-50%;)
-    border-radius: 50%;
+    top: 20%;
+    transform: translateX(-50%;);
 }
 
 @keyframes enlarge

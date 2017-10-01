@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+    <!-- Google Maps -->
+    <div id="map" style="width:100%;height:600px;"></div>
+
+    <form action="/map" method="post">
+        <select>
+            <option value="food">Food</option>
+            <option value="legal">Legal</option>
+            <option value="cleaning services">Cleaning Services</option>
+            <option value="medical">Medical</option>
+            <option value="architecture">Architecture</option>
+            <option value="real estate">Real Estate</option>
+            <option value="lawn maintenance">Lawn Maintenance</option>
+            <option value="retail">Retail</option>
+            <option value="beautician">Beautician</option>
+        </select>
+            <input type="checkbox" name="minority" value="1">Minority</input>
+            <input type="checkbox" name="woman" value="1">Woman</input>
+        <button>Submit</button>
+    </form>
+
+
+        <script>
+          function initMap() {
+            var center = {lat: 25.7617, lng: -80.1918};
+            var map = new google.maps.Map(document.getElementById('map'), {
+              zoom: 11,
+              center: center
+            });
+            {% for business, index in zip(verifiedBusinesses, range(len(verifiedBusinesses))) %}
+            var content = "{{ business.name }}" + "<br><br>" + "Category: {{ business.type }}" + "<br><br>" + "<a href='address:{{ business.address }}'>{{ business.address}}</a>" + "<br><br>" + "{% if business.minority %}Minority-Owned<br>{% endif %}" + "{% if business.women %}Woman-Owned{% endif %}";
+            var infowindow{{index}} = new google.maps.InfoWindow({
+              content: content
+            });
+            var marker{{index}} = new google.maps.Marker({
+                position: {lat: {{ business.coordinates()["lat"] }}, lng: {{ business.coordinates()["lng"]}}},
+                map: map
+            });
+            marker{{index}}.addListener('click', function() {
+              infowindow{{index}}.open(map, marker{{index}});
+            });
+            {% endfor %}
+          }
+        </script>
+
+        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCo6s7TH2WBBQWgllw3kXlYxoM1zi7cCww&callback=initMap"></script>
+
+{% endblock %}

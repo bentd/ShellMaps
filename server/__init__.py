@@ -26,6 +26,7 @@ mail = Mail(app)
 from server.database.businesses import Business
 db.create_all()
 
+
 """
 auth = HTTPBasicAuth()
 @auth.verify_password
