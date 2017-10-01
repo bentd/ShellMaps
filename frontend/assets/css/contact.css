@@ -1,0 +1,42 @@
+.name
+{
+  padding-right: 20%;
+  margin: 3%;
+}
+
+.email
+{
+  margin: 3%;
+  padding-right: 20%;
+}
+
+.subject
+{
+  margin: 3%;
+  padding-right: 20%;
+}
+
+.message
+{
+  padding-right: 20%;
+  margin: 3%;
+}
+
+.submit
+{
+  margin: 3%;
+}
+
+main #background
+{
+    background: url(../img/chicago.jpg) no-repeat;
+    background-size: cover;
+    filter: brightness(75%);
+    height: 60vh;
+}
+
+
+.cf
+{
+  padding-left: 10vw;
+}
