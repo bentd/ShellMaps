@@ -1,6 +1,6 @@
 bcrypt
 coverage
-flask
+Flask==0.12.2
 flask_bcrypt
 flask_cors
 flask_httpauth
