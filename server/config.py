@@ -55,7 +55,7 @@ class TestingConfig(BaseConfig):
     WTF_CSRF_ENABLED = False
 
     # database URI
-    SQLALCHEMY_DATABASE_URI = os.environ.get("SQLALCHEMY_DATABASE_URI", "mysql+pymysql://root:kmug07shTrnQYWNnjUwRMVEwsiQ2vZFD@35.196.58.16/casedb")
+    SQLALCHEMY_DATABASE_URI = os.environ.get("SQLALCHEMY_DATABASE_URI", "mysql+pymysql://root:password@35.188.171.146/database")
 
 
 class ProductionConfig(BaseConfig):
@@ -63,7 +63,3 @@ class ProductionConfig(BaseConfig):
 
     # database URI
     SQLALCHEMY_DATABASE_URI = os.environ.get("SQLALCHEMY_DATABASE_URI")
-
-    # stripe keys
-    STRIPE_SECRET_KEY = "STRIPE_SECRET_KEY"
-    STRIPE_PUBLISHABLE_KEY = "STRIPE_PUBLISHABLE_KEY"

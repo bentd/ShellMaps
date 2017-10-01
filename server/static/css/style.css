@@ -1,0 +1,52 @@
+
+html,
+body
+{
+    position: relative;
+}
+
+nav
+{
+   background: transparent;
+   border-color: red;
+    background-color: transparent !important;
+}
+
+main #background
+{
+    background: url(../img/background.jpg) no-repeat;
+    background-size: cover;
+    filter: brightness(75%);
+    height: 100vh;
+}
+
+main h1.header
+{
+    font-size: 7vw;
+    font-weight: 200;
+    left: 50%;
+    margin: auto;
+    position: absolute;
+    top: 25%;
+    transform: translate(-50%, -50%);
+    width: 90%;
+    color: white;
+}
+
+main button.scroll-down
+{
+    animation: enlarge infinite;
+    bottom: 20px;
+    font-size: 2em;
+    left: 50%;
+    position: absolute;
+    transform: translateX(-50%;)
+    border-radius: 50%;
+}
+
+@keyframes enlarge
+{
+    0% { font-size: 2em; }
+    50% { font-size: 3em; }
+    100% { font-size: 2em; }
+}

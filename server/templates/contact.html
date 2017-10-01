@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block content %}
+      <main>
+          <div id="background"></div>
+          <h1 class="header" align="center">Contact</h1>
+      </main>
+
+
+
+  <form style="padding:3vw;" class="cf" action="/business" method="post">
+    <div class="half left cf">
+      <input type="text" id="input-name" placeholder="Name" class="name">
+      <input type="email" id="input-email" placeholder="Email address" class="email">
+      <input type="text" id="input-subject" placeholder="Subject" class="subject">
+      <textarea name="message" type="text" id="input-message" placeholder="Message" class="message"></textarea>
+    <input type="submit" value="Submit" id="input-submit" class="submit">
+  </form>
+
+
+      <script src="/static/vendor/bootstrap/js/bootstrap.min.js"></script>
+      <script src="/static/vendor/popper.js/popper.min.js"></script>
+      <script src="/static/vendor/jquery/jquery.js"></script>
+    </body>
+    </html>
+
+{% endblock %}
