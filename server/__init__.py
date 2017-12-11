@@ -1,6 +1,7 @@
 #! ../env/bin/python
 
 import os
+import json
 
 from flask import Flask
 from flask import g
@@ -25,6 +26,17 @@ mail = Mail(app)
 
 from server.database.businesses import Business
 db.create_all()
+
+with open("businesses.json", "r") as businesses:
+
+    json_text = businesses.read()
+    json_list = json.loads(json_text)
+
+    for business in json_list["businesses"]:
+        print business
+        business_to_add = Business(business["name"], business["owner"], business["type"], business["address"], business["minority"], business["women"], business["verified"])
+        db.session.add(business_to_add)
+        db.session.commit()
 
 
 """

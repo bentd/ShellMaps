@@ -44,21 +44,4 @@ def register():
 @primary.route("/map", methods=["GET"])
 def map():
 
-    businesses = db.session.query(Business).filter_by(verified=True).all()
-    return render_template("map.html", verifiedBusinesses=businesses, zip=zip, range=range, len=len)
-
-@primary.route("/map", methods=["POST"])
-def filter():
-
-    category = request.form.get("category")
-    minority = request.form.get("minority")
-    woman = request.form.get("woman")
-    print category, minority, woman
-    if minority and not woman:
-        businesses = db.session.query(Business).filter_by(type=category, minority=minority).all()
-    elif woman and not minority:
-        businesses = db.session.query(Business).filter_by(type=category, women=woman).all()
-    else:
-        businesses = db.session.query(Business).filter_by(type=category, women=woman, minority=minority).all()
-    print businesses
-    return render_template("map.html", verifiedBusinesses=db.session.query(Business).filter_by(verified=True).all(), filteredBusiness=businesses, len=len, zip=zip, range=range)
+    return render_template("map.html")

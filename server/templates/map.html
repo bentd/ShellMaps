@@ -9,7 +9,7 @@
     <br>
     <br>
 
-    <form action="/map" method="post">
+    <form action="/map" method="">
         <select name="category">
             <option value="food">Food</option>
             <option value="legal">Legal</option>
@@ -29,13 +29,6 @@
     <br>
     <br>
 
-    {% for business in filteredBusiness %}
-
-        <h5>{{ business.name }}</h5>
-        <p>{{ business.address }}<p>
-
-    {% endfor %}
-
 
         <script>
           function initMap() {
@@ -44,19 +37,6 @@
               zoom: 11,
               center: center
             });
-            {% for business, index in zip(verifiedBusinesses, range(len(verifiedBusinesses))) %}
-            var content = "{{ business.name }}" + "<br><br>" + "Category: {{ business.type }}" + "<br><br>" + "<a href='address:{{ business.address }}'>{{ business.address}}</a>" + "<br><br>" + "{% if business.minority %}Minority-Owned<br>{% endif %}" + "{% if business.women %}Woman-Owned{% endif %}";
-            var infowindow{{index}} = new google.maps.InfoWindow({
-              content: content
-            });
-            var marker{{index}} = new google.maps.Marker({
-                position: {lat: {{ business.coordinates()["lat"] }}, lng: {{ business.coordinates()["lng"]}}},
-                map: map
-            });
-            marker{{index}}.addListener('click', function() {
-              infowindow{{index}}.open(map, marker{{index}});
-            });
-            {% endfor %}
           }
         </script>
 

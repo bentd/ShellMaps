@@ -42,11 +42,11 @@ class TestingConfig(BaseConfig):
     WTF_CSRF_ENABLED = False
 
     # database URI
-    SQLALCHEMY_DATABASE_URI = os.environ.get("SQLALCHEMY_DATABASE_URI", "mysql+pymysql://root:password@35.188.171.146/database")
+    SQLALCHEMY_DATABASE_URI = "sqlite:///dev.sqlite"
 
 
 class ProductionConfig(BaseConfig):
     """Production configuration."""
 
     # database URI
-    SQLALCHEMY_DATABASE_URI = os.environ.get("SQLALCHEMY_DATABASE_URI")
+    SQLALCHEMY_DATABASE_URI = "sqlite:///dev.sqlite"

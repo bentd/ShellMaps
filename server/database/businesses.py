@@ -16,7 +16,7 @@ class Business(db.Model):
     name = db.Column(db.String(64), nullable=False)
     owner = db.Column(db.String(128), nullable=False)
     type = db.Column(db.String(32), nullable=False)
-    address = db.Column(db.String(128), unique=True, nullable=False)
+    address = db.Column(db.String(128), nullable=False)
     minority = db.Column(db.Boolean, nullable=False)
     women = db.Column(db.Boolean, nullable=False)
     verified = db.Column(db.Boolean)
@@ -33,10 +33,14 @@ class Business(db.Model):
 
     def coordinates(self):
 
+        print; print self.address; print
         address = urlencode({"address": self.address})
+        print; print address; print;
         url = "https://maps.googleapis.com/maps/api/geocode/json?address={}&key=AIzaSyCo6s7TH2WBBQWgllw3kXlYxoM1zi7cCww".format(address)
         data = urlopen(url).read()
-        coord = json.loads(data)["results"][0]["geometry"]["location"]
+        data = json.loads(data)
+        print; print data; print;
+        coord = data["results"][0]["geometry"]["location"]
         return coord
 
     @classmethod
@@ -48,8 +52,6 @@ class Business(db.Model):
         minority = form.minority.data
         women = form.women.data
         verified = form.verified.data
-
-
 
 if __name__ == "__main__":
 
